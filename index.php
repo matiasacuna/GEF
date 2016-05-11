@@ -18,11 +18,11 @@
 <body>
 <div class="container">
 <div class="top">
-<h1 id="title" class="hidden"><span id="logo">Proyecto <span>GEF</span></span></h1>
+<h1 id="title" class="hidden"><span id="logo">Proyecto <span>GEF.</span></span></h1>
 </div>
 <div class="login-box animated fadeInUp">
 <div class="box-header">
-<h2>Inicia Sesion</h2>
+<h2>Inicia Sesion.</h2>
 </div>
 <label for="username">Usuario</label>
 <br/>
