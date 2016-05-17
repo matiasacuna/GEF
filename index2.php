@@ -1,13 +1,18 @@
 <?php 
 session_start(); 
-include_once "conexion.php"; 
-  
-function verificar_login($user,$password,&$result) { 
+//include_once "conexion.php"; 
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'mydb');
+$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+function verificar_login($user,$password,&$result) {
+	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
     $sql = "SELECT * FROM usuario WHERE mail = '$user' and contrasena = '$password'"; 
-    $rec = mysql_query($sql); 
+    $rec = mysqli_query($db, $sql); 
     $count = 0; 
   
-    while($row = mysql_fetch_object($rec)) 
+    while($row = mysqli_fetch_object($rec)) 
     { 
         $count++; 
         $result = $row; 
