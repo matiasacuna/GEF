@@ -25,21 +25,28 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">                  
                     <div class="panel-heading">
-                        <h3 class="panel-title">Iniciar Sesion</h3>
+                        <h3 class="panel-title">Crear Cuenta</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
+                                    <input class="form-control" placeholder="Nombre" name="nombre" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Apellido" name="apellido" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
                                     <input class="form-control" placeholder="Mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Clave" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Clave" name="clave" type="password" value="">
                                 </div>
+                                <input type="radio" name="tipo" value="profesor" checked> Profesor
+  								<input type="radio" name="tipo" value="alumno"> Alumno<br>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="indexprofe.php" class="btn btn-lg btn-success btn-block">Ingresar</a>
-                                <a href="crearcuenta.php" class="btn btn-lg btn-success btn-block">Crear cuenta</a>
-                                <a href="recuperarclave.php" class="fa fa-back fa-fw">Recuperar contrasena</a>
+                                <a href="index.php" class="btn btn-lg btn-success btn-block">Crear cuenta</a>
+                                <a href="index.php" class="fa fa-back fa-fw">Volver</a>
                             </fieldset>
                         </form>
                     </div>
