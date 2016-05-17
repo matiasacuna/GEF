@@ -5,7 +5,7 @@ define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'mydb');
-$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+//$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 function verificar_login($user,$password,&$result) {
 	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
     $sql = "SELECT * FROM usuario WHERE mail = '$user' and contrasena = '$password'"; 
@@ -36,7 +36,7 @@ if(!isset($_SESSION['userid']))
         if(verificar_login($_POST['user'],$_POST['password'],$result) == 1) 
         { 
             $_SESSION['userid'] = $result->rut; 
-            header("location:index2.php"); 
+            header("location:index.php"); 
         } 
         else 
         { 
