@@ -1,8 +1,20 @@
+<script type="text/javascript">
+
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.display = 'block';
+    }
+    else document.getElementById('ifYes').style.display = 'none';
+
+}
+</script>
 <?php
 
 	include ("connection.php");	
 
 	$msg = "";
+	if($_POST["type"] == "professor")
+	{
 	if(isset($_POST["submit"]))
 	{
 		$name = $_POST["name"];
@@ -28,6 +40,39 @@
 			if($query)
 			{
 				$msg = "Tu cuenta ha sido registrada con exito";
+			}
+		}
+	}
+	}else if($_POST["type"] == "student")
+	{
+		if(isset($_POST["submit"]))
+		{
+			$name = $_POST["name"];
+			$email = $_POST["mail"];
+			$password = $_POST["password"];
+			$type = $_POST["level"];
+		
+			$name = mysqli_real_escape_string($db, $name);
+			$email = mysqli_real_escape_string($db, $email);
+			$type = mysqli_real_escape_string($db, $type);
+			$password = mysqli_real_escape_string($db, $password);
+			$password = md5($password);
+		
+		
+			$sql="SELECT mail FROM users_student WHERE mail='$email'";
+			$result=mysqli_query($db,$sql);
+			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+			if(mysqli_num_rows($result) == 1)
+			{
+				$msg = "Lo lamentamos, este correo ya existe";
+			}
+			else
+			{
+				$query = mysqli_query($db, "INSERT INTO users_student (name, mail, password, type)VALUES ('$name', '$email', '$password')");
+				if($query)
+				{
+					$msg = "Tu cuenta ha sido registrada con exito";
+				}
 			}
 		}
 	}
@@ -108,10 +153,21 @@
                                     <input class="form-control" placeholder="Mail" name="mail" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Clave" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Clave" name="password" type="password" value="" maxlength="10">
                                 </div>
-                                <input type="radio" name="tipo" value="profesor" checked> Profesor
-  								<input type="radio" name="tipo" value="alumno"> Alumno<br>
+  								Alumno <input type="radio" onclick="javascript:yesnoCheck();" name="type" id="yesCheck" value="student"> Profesor <input type="radio" onclick="javascript:yesnoCheck();" name="type" id="noCheck" checked value="professor"><br>
+    							<div id="ifYes" style="display:none">
+        						Curso: 
+                                        <div class="form-group">
+                                            <select class="form-control" name="level">
+                                                <option value="1">Quinto Basico A</option>
+                                                <option value="2">Quinto Basico B</option>
+                                                <option value="3">Sexto Basico</option>
+                                                <option value="4">Septimo Basico</option>
+                                                <option value="5">Octavo Basico</option>
+                                            </select>
+                                        </div>
+    									</div>
   								<input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Registrarse!" />	
                                 <!-- Change this to a button or input when using this as a form -->
                                 <?php echo $msg;?>

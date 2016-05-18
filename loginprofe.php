@@ -1,5 +1,5 @@
 <?php
-	include('login.php'); // Include Login Script
+	include('login_db_prof.php'); // Include Login Script
 
 	if ((isset($_SESSION['mail']) != '')) 
 	{

@@ -1,5 +1,5 @@
 <?php
-	include("check.php");	
+	include("check_prof.php");	
 ?>
 <html><head>
     <meta charset="utf-8">
