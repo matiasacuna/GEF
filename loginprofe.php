@@ -3,6 +3,8 @@
 
 	if ((isset($_SESSION['mail']) != '')) 
 	{
+		include("check_stud.php");	
+
 		header('Location: indexprofe.php');
 	}	
 ?>

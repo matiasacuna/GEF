@@ -1,3 +1,6 @@
+<?php
+	include("check_stud.php");	
+?>
 <html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -187,7 +190,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="index.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -212,7 +215,7 @@
                                 <img src="assets/img/user.jpg" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Simon <strong>Valero</strong></div>
+                                <div> <strong><?php echo $name2;?></strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -267,7 +270,7 @@
                 <!-- Welcome -->
                 <div class="col-lg-12">
                     <div class="alert alert-info">
-                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte <b>Simon Valero </b>
+                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte denuevo <b><?php echo $name2;?> </b>
                     </div>
                 </div>
                 <!--end  Welcome -->

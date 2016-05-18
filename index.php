@@ -50,11 +50,10 @@ function yesnoCheck() {
 			$name = $_POST["name"];
 			$email = $_POST["mail"];
 			$password = $_POST["password"];
-			$type = $_POST["level"];
+			$level = $_POST["level"];
 		
 			$name = mysqli_real_escape_string($db, $name);
 			$email = mysqli_real_escape_string($db, $email);
-			$type = mysqli_real_escape_string($db, $type);
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
 		
@@ -68,7 +67,7 @@ function yesnoCheck() {
 			}
 			else
 			{
-				$query = mysqli_query($db, "INSERT INTO users_student (name, mail, password, type)VALUES ('$name', '$email', '$password')");
+				$query = mysqli_query($db, "INSERT INTO users_student (name, mail, password, level_idlevel)VALUES ('$name', '$email', '$password', '$level')");
 				if($query)
 				{
 					$msg = "Tu cuenta ha sido registrada con exito";

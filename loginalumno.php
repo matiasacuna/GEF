@@ -1,3 +1,11 @@
+<?php
+	include('login_db_stud.php'); // Include Login Script
+
+	if ((isset($_SESSION['mail']) != '')) 
+	{
+		header('Location: indexalumno.php');
+	}	
+?>
 <!DOCTYPE html>
 <html>
 
@@ -28,16 +36,18 @@
                         <h3 class="panel-title">Iniciar Sesion</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Mail" name="mail" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Clave" name="password" type="password" value="">
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="indexalumno.php" class="btn btn-lg btn-success btn-block">Ingresar</a>
+                                <div class="error" ><?php echo $error;?></div>
+                                <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Login" /> 
+                                </div>
                                 <a href="recuperarclave.php" class="btn btn-lg btn-success btn-block">Recuperar contrasena</a>
                                 <a href="index.php" class="fa fa-back fa-fw">Volver</a>
                             </fieldset>

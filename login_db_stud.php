@@ -22,7 +22,7 @@
 			$password = md5($password);
 			
 			//Check username and password from database
-			$sql="SELECT upid FROM users_professor WHERE mail='$username' and password='$password'";
+			$sql="SELECT usid FROM users_student WHERE mail='$username' and password='$password'";
 			$result=mysqli_query($db,$sql);
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 			
@@ -32,7 +32,7 @@
 			if(mysqli_num_rows($result) == 1)
 			{
 				$_SESSION['mail'] = $username; // Initializing Session
-				header("location: indexprofe.php"); // Redirecting To Other Page
+				header("location: indexalumno.php"); // Redirecting To Other Page
 			}else
 			{
 				$error = "Usuario o contrasena incorrectos.";
