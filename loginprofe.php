@@ -2,8 +2,7 @@
 	include('login_db_prof.php'); // Include Login Script
 
 	if ((isset($_SESSION['mail']) != '')) 
-	{
-		include("check_stud.php");	
+	{	
 
 		header('Location: indexprofe.php');
 	}	
