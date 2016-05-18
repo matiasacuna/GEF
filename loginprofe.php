@@ -44,10 +44,11 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Clave" name="password" type="password" value="">
                                 </div>
+                                <div class="error" ><?php echo $error;?></div>
                                 <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Login" /> 
                                 </div>
-                                <div class="error" ><?php echo $error;?></div>
+                                
                                 <!-- Change this to a button or input when using this as a form -->
                        
                                 <a href="recuperarclave.php" class="btn btn-lg btn-success btn-block	">Recuperar contrasena</a>

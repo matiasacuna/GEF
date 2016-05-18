@@ -35,7 +35,7 @@
 				header("location: indexprofe.php"); // Redirecting To Other Page
 			}else
 			{
-				$error = "Incorrect username or password.";
+				$error = "Usuario o contrasena incorrectos.";
 			}
 
 		}

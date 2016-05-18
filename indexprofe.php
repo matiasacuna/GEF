@@ -215,7 +215,7 @@
                                 <img src="assets/img/user.jpg" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Simon <strong>Valero</strong></div>
+                                <div> <strong><?php echo $name2;?></strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -273,7 +273,7 @@
                 <!-- Welcome -->
                 <div class="col-lg-12">
                     <div class="alert alert-info">
-                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte <b>Simon Valero </b>
+                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte denuevo <b><?php echo $name2;?> </b>
                     </div>
                 </div>
                 <!--end  Welcome -->

@@ -1,3 +1,37 @@
+<?php
+
+	include ("connection.php");	
+
+	$msg = "";
+	if(isset($_POST["submit"]))
+	{
+		$name = $_POST["name"];
+		$email = $_POST["mail"];
+		$password = $_POST["password"];
+
+		$name = mysqli_real_escape_string($db, $name);
+		$email = mysqli_real_escape_string($db, $email);
+		$password = mysqli_real_escape_string($db, $password);
+		$password = md5($password);
+		
+		
+		$sql="SELECT mail FROM users_professor WHERE mail='$email'";
+		$result=mysqli_query($db,$sql);
+		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+		if(mysqli_num_rows($result) == 1)
+		{
+			$msg = "Lo lamentamos, este correo ya existe";
+		}
+		else
+		{
+			$query = mysqli_query($db, "INSERT INTO users_professor (name, mail, password)VALUES ('$name', '$email', '$password')");
+			if($query)
+			{
+				$msg = "Tu cuenta ha sido registrada con exito";
+			}
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -65,24 +99,23 @@
                         <h3 class="panel-title">Crear Cuenta</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Nombre" name="nombre" type="text" autofocus>
+                                    <input class="form-control" placeholder="Nombre" name="name" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Apellido" name="apellido" type="text" autofocus>
+                                    <input class="form-control" placeholder="Mail" name="mail" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Mail" name="email" type="email" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Clave" name="clave" type="password" value="">
+                                    <input class="form-control" placeholder="Clave" name="password" type="password" value="">
                                 </div>
                                 <input type="radio" name="tipo" value="profesor" checked> Profesor
   								<input type="radio" name="tipo" value="alumno"> Alumno<br>
+  								<input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Registrarse!" />	
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.php" class="btn btn-lg btn-success btn-block">Crear cuenta</a>
+                                <?php echo $msg;?>
+                 
                             </fieldset>
                         </form>
                     </div>
