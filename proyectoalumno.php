@@ -14,7 +14,7 @@
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
    <style type="text/css"></style></head>
-<body class=" pace-done" onload="ajax();"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+<body class=" pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <!-- <a class="navbar-brand" href="indexprofe.php">
+               <!-- <a class="navbar-brand" href="indexalumno.php">
                     <img src="assets/img/logo.png" alt="">
                 </a> -->
             </div>
@@ -109,7 +109,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a class="text-center" href="proyectoalumno.php">
+                            <a class="text-center" href="proyectoprofe.php">
                                 <strong>Ver todos los Proyectos</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
@@ -120,15 +120,15 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning">2</span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-comment fa-fw"></i>Comentario nuevo
+                                    <span class="pull-right text-muted small">Hace 4 minutos</span>
                                 </div>
                             </a>
                         </li>
@@ -136,42 +136,15 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-tasks fa-fw"></i>Nuevo avance
+                                    <span class="pull-right text-muted small">Hace 43 minutos</span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
+                                <strong>Ver todas las notificaciones</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -201,6 +174,7 @@
 
         </nav>
         <!-- end navbar top -->
+
 
         <!-- navbar side -->
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -236,7 +210,7 @@
                         <!--end search section-->
                     </li>
                     <li class="selected">
-                        <a href="indexprofe.php"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
+                        <a href="indexalumno.php"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
                     </li>
                     
                      <li>
@@ -258,126 +232,52 @@
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
+            
             <div class="row">
-                <!-- Page Header -->
+                 <!--  page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Inicio</h1>
+                    <h1 class="page-header">Proyectos</h1>
                 </div>
-                <!--End Page Header -->
+                 <!-- end  page header -->
             </div>
-
             <div class="row">
-                <!-- Welcome -->
                 <div class="col-lg-12">
-                    <div class="alert alert-info">
-                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte denuevo <b><?php echo $name2;?> </b>
-                    </div>
-                </div>
-                <!--end  Welcome -->
-            </div>
-
-
-
-            <div class="row">
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- Notifications-->
-                    <div class="panel panel-primary">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i>Notificaciones
+                             Proyectos
                         </div>
-
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i>Comentario nuevo
-                                    <span class="pull-right text-muted small"><em>Hace 4 minutos</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i>Nuevo avance
-                                    <span class="pull-right text-muted small"><em>Hace 43 minutos</em>
-                                    </span>
-                                </a>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre Proyecto</th>
+                                            <th>Curso</th>
+                                            <th>Materia</th>
+                                            <th>Fecha de Inicio</th>
+                                            <th>Estado</th>
+                                            <th>Nota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Proyecto 1</td>
+                                            <td>Quinto Basico A</td>
+                                            <td>Matematicas</td>
+                                            <td class="center">H/O/Y</td>
+                                            <td class="center">Pendiente</td>
+                                            <td class="center">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">Ver todas las notificaciones</a>
-                        </div>
-
-                    </div>
-                    <!--End Notifications-->
-                </div>
-                <div class="col-lg-4">
-                    <!-- Chat Panel Example-->
-                    <div class="chat-panel panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i>
-                            Comentarios
-                        </div>
-                        
                             
-                                <link rel="stylesheet" href="style.css" media="all"/>
-	<script>
-		function ajax(){
-		
-		var req = new XMLHttpRequest();
-		
-		req.onreadystatechange = function(){
-		
-		if(req.readyState == 4 && req.status == 200){
-		
-		document.getElementById('chat').innerHTML = req.responseText;
-		} 
-		}
-		req.open('GET','chat.php',true); 
-		req.send();
-		
-		}
-		setInterval(function(){ajax()},1000);
-	</script>
-                            
-                        
-                        <div id="container">
-							<div id="chat_box">
-							<div id="chat"></div>
-							</div>
-							<form method="post" action="indexprofe.php">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba aqui..." name="msg">
-                                <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-warning btn-sm" id="btn-chat" name="submit" value="Enviar">
-                                </span>
-                            </form>
-                            <?php 
-							if(isset($_POST['submit'])){ 
-		
-							
-							$msg = $_POST['msg'];
-		
-							$query = "INSERT INTO chatindex (name,msg) values ('$name2','$msg')";
-		
-							$run = $db->query($query);
-		
-							if($run){
-								echo "<embed loop='false' src='chat.wav' hidden='true' autoplay='true'/>";
-							}
-		
-		
-							}
-							?>
-                            </div>
                         </div>
-
                     </div>
-                    <!--End Chat Panel Example-->
+                    <!--End Advanced Tables -->
                 </div>
             </div>
-
-
-         
-
-
-        </div>
         <!-- end page-wrapper -->
 
     </div>
@@ -390,8 +290,15 @@
     <script src="assets/plugins/pace/pace.js"></script>
     <script src="assets/scripts/siminta.js"></script>
     <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/plugins/morris/morris.js"></script>
-    <script src="assets/scripts/dashboard-demo.js"></script>
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+
+</body>
 
 </html>

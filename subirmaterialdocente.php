@@ -1,6 +1,44 @@
 <?php
-	include("check_stud.php");	
+	include("check_prof.php");
+	$msg="";
+	if(isset($_POST['btn-upload']))
+	{
+			
+		$file = rand(1000,100000)."-".$_FILES['file']['name'];
+		$file_loc = $_FILES['file']['tmp_name'];
+		$file_size = $_FILES['file']['size'];
+		$file_type = $_FILES['file']['type'];
+		$folder="uploads_professor_material/";
+		$level=$_POST['level'];
+		$description=$_POST['description'];
+		$course=$_POST['course'];
+		$mail=$_SESSION['mail_prof'];
+		$sql1="SELECT upid FROM users_professor WHERE mail='$user_check'";
+		$result=mysqli_query($db,$sql1)->fetch_assoc();
+		$users_professor_upid=$result['upid'];
+		// new file size in KB
+		$new_size = $file_size/1024;
+		// new file size in KB
+	
+		// make file name in lower case
+		$new_file_name = strtolower($file);
+		// make file name in lower case
+	
+		$final_file=str_replace(' ','-',$new_file_name);
+	
+		if(move_uploaded_file($file_loc,$folder.$final_file))
+		{
+			$sql="INSERT INTO files_professor_material(file,type,size,level,description,course,users_professor_upid) VALUES('$final_file','$file_type','$new_size','$level','$description','$course','$users_professor_upid')";
+			mysqli_query($db,$sql);
+			$msg="El archivo se ha subido correctamente.";
+			}
+			else
+			{
+				$msg="Ha ocurrido un error al intentar subir el archivo.";
+			}
+		}
 ?>
+
 <html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +52,7 @@
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
    <style type="text/css"></style></head>
-<body class=" pace-done" onload="ajax();"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+<body class=" pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
@@ -109,7 +147,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a class="text-center" href="proyectoalumno.php">
+                            <a class="text-center" href="proyectoprofe.php">
                                 <strong>Ver todos los Proyectos</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
@@ -120,15 +158,15 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning">2</span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-comment fa-fw"></i>Comentario nuevo
+                                    <span class="pull-right text-muted small">Hace 4 minutos</span>
                                 </div>
                             </a>
                         </li>
@@ -136,42 +174,15 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-tasks fa-fw"></i>Nuevo avance
+                                    <span class="pull-right text-muted small">Hace 43 minutos</span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
+                                <strong>Ver todas las notificaciones</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -201,6 +212,7 @@
 
         </nav>
         <!-- end navbar top -->
+
 
         <!-- navbar side -->
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -240,13 +252,16 @@
                     </li>
                     
                      <li>
-                        <a href="proyectoalumno.php"><i class="fa fa-edit fa-fw"></i>Proyectos</a>
+                        <a href="proyectoprofe.php"><i class="fa fa-edit fa-fw"></i>Proyectos</a>
                     </li>
                     <li>
-                        <a href="nuevoproyecto.php"><i class="fa fa-edit fa-fw"></i>Nuevos Proyectos</a>
+                        <a href="crearproyecto.php"><i class="fa fa-edit fa-fw"></i>Crear Proyectos</a>
                     </li>
                     <li>
-                        <a href="materialalumno.php"><i class="fa fa-book fa-fw"></i>Material Alumno</a>
+                        <a href="materialdocente.php"><i class="fa fa-book fa-fw"></i>Material Docente</a>
+                    </li>
+                    <li>
+                        <a href="subirmaterialdocente.php"><i class="fa fa-edit fa-fw"></i>Subir Material Docente</a>
                     </li>
      
                 </ul>
@@ -256,127 +271,65 @@
         </nav>
         <!-- end navbar side -->
         <!--  page-wrapper -->
-        <div id="page-wrapper">
-
+          <div id="page-wrapper">
             <div class="row">
-                <!-- Page Header -->
+                 <!-- page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Inicio</h1>
+                    <h1 class="page-header">Subir Material Docente</h1>
                 </div>
-                <!--End Page Header -->
+                <!--end page header -->
             </div>
-
             <div class="row">
-                <!-- Welcome -->
                 <div class="col-lg-12">
-                    <div class="alert alert-info">
-                        <i class="fa fa-folder-open"></i><b>&nbsp;Hola ! </b>Es bueno verte denuevo <b><?php echo $name2;?> </b>
-                    </div>
-                </div>
-                <!--end  Welcome -->
-            </div>
-
-
-
-            <div class="row">
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- Notifications-->
-                    <div class="panel panel-primary">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i>Notificaciones
+                            Complete el formulario para subir material
                         </div>
-
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i>Comentario nuevo
-                                    <span class="pull-right text-muted small"><em>Hace 4 minutos</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i>Nuevo avance
-                                    <span class="pull-right text-muted small"><em>Hace 43 minutos</em>
-                                    </span>
-                                </a>
-                            </div>
-                            <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">Ver todas las notificaciones</a>
-                        </div>
-
-                    </div>
-                    <!--End Notifications-->
-                </div>
-                <div class="col-lg-4">
-                    <!-- Chat Panel Example-->
-                    <div class="chat-panel panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i>
-                            Comentarios
-                        </div>
-                        
-                            
-                                <link rel="stylesheet" href="style.css" media="all"/>
-	<script>
-		function ajax(){
-		
-		var req = new XMLHttpRequest();
-		
-		req.onreadystatechange = function(){
-		
-		if(req.readyState == 4 && req.status == 200){
-		
-		document.getElementById('chat').innerHTML = req.responseText;
-		} 
-		}
-		req.open('GET','chat.php',true); 
-		req.send();
-		
-		}
-		setInterval(function(){ajax()},1000);
-	</script>
-                            
-                        
-                        <div id="container">
-							<div id="chat_box">
-							<div id="chat"></div>
-							</div>
-							<form method="post" action="indexprofe.php">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba aqui..." name="msg">
-                                <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-warning btn-sm" id="btn-chat" name="submit" value="Enviar">
-                                </span>
-                            </form>
-                            <?php 
-							if(isset($_POST['submit'])){ 
-		
-							
-							$msg = $_POST['msg'];
-		
-							$query = "INSERT INTO chatindex (name,msg) values ('$name2','$msg')";
-		
-							$run = $db->query($query);
-		
-							if($run){
-								echo "<embed loop='false' src='chat.wav' hidden='true' autoplay='true'/>";
-							}
-		
-		
-							}
-							?>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" method="post" enctype="multipart/form-data" >
+                                        <!--<div class="form-group">
+                                            <label>Nombre del Archivo</label>
+                                            <input class="form-control" name="name">
+                                        </div>-->
+                                        <div class="form-group">
+                                            <label>Curso</label>
+                                            <select class="form-control" name="level">
+                                                 <option value="1">Quinto Basico A</option>
+                                                 <option value="2">Quinto Basico B</option>
+                                                 <option value="3">Sexto Basico</option>
+                                                 <option value="4">Septimo Basico</option>
+                                                 <option value="5">Octavo Basico</option>
+                                            </select>
+                                            <div class="form-group">
+                                            <label>Ramo</label>
+                                            <select class="form-control" name="course">
+                                                 <option value="1">Matematica</option>
+                                                 <option value="2">Lenguaje</option>
+                                                 <option value="3">Fisica</option>
+                                                 <option value="4">Quimica</option>
+                                            </select>
+                                        <div class="form-group">
+                                            <label>Seleccione archivo</label>
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion</label>
+                                            <textarea class="form-control" rows="3" name="description"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" name="btn-upload">Subir archivo</button>
+                                        <button type="reset" class="btn btn-success">Reset Button</button>
+                                        <div> <strong><?php echo $msg;?></strong></div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                    <!--End Chat Panel Example-->
+                     <!-- End Form Elements -->
                 </div>
             </div>
-
-
-         
-
-
         </div>
         <!-- end page-wrapper -->
 
@@ -389,9 +342,7 @@
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
     <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/plugins/morris/morris.js"></script>
-    <script src="assets/scripts/dashboard-demo.js"></script>
+
+</body>
 
 </html>

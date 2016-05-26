@@ -13,8 +13,9 @@
     <link href="assets/css/main-style.css" rel="stylesheet">
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-   <style type="text/css"></style></head>
-<body class=" pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+   <style type="text/css"></style>
+   </head>
+<body class=" pace-done" onload="ajax();"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
@@ -120,15 +121,15 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning">2</span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-comment fa-fw"></i>Comentario nuevo
+                                    <span class="pull-right text-muted small">Hace 4 minutos</span>
                                 </div>
                             </a>
                         </li>
@@ -136,42 +137,15 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-tasks fa-fw"></i>Nuevo avance
+                                    <span class="pull-right text-muted small">Hace 43 minutos</span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
+                                <strong>Ver todas las notificaciones</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -317,115 +291,57 @@
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
                             Comentarios
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-refresh fa-fw"></i>Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-check-circle fa-fw"></i>Available
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-times fa-fw"></i>Busy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o fa-fw"></i>Away
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-sign-out fa-fw"></i>Sign Out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-
-                        <div class="panel-body">
-                            <ul class="chat">
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Isidora Jara</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>Hace 12 minutos
-                                            </small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>Hace 13 minutos</small>
-                                            <strong class="pull-right primary-font">Matias Acuna</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Isidora Jara</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>Hace 14 minutos</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>Hace 15 minutos</small>
-                                            <strong class="pull-right primary-font">Matias Acuna</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba aqui...">
+                        
+                            
+                                <link rel="stylesheet" href="style.css" media="all"/>
+	<script>
+		function ajax(){
+		
+		var req = new XMLHttpRequest();
+		
+		req.onreadystatechange = function(){
+		
+		if(req.readyState == 4 && req.status == 200){
+		
+		document.getElementById('chat').innerHTML = req.responseText;
+		} 
+		}
+		req.open('GET','chat.php',true); 
+		req.send();
+		
+		}
+		setInterval(function(){ajax()},1000);
+	</script>
+                            
+                        
+                        <div id="container">
+							<div id="chat_box">
+							<div id="chat"></div>
+							</div>
+							<form method="post" action="indexprofe.php">
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba aqui..." name="msg">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Enviar
-                                    </button>
+                                    <input type="submit" class="btn btn-warning btn-sm" id="btn-chat" name="submit" value="Enviar">
                                 </span>
+                            </form>
+                            <?php 
+							if(isset($_POST['submit'])){ 
+		
+							
+							$msg = $_POST['msg'];
+		
+							$query = "INSERT INTO chatindex (name,msg) values ('$name2','$msg')";
+		
+							$run = $db->query($query);
+		
+							if($run){
+								echo "<embed loop='false' src='chat.wav' hidden='true' autoplay='true'/>";
+							}
+		
+		
+							}
+							?>
                             </div>
                         </div>
 

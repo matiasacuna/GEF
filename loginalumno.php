@@ -1,7 +1,7 @@
 <?php
 	include('login_db_stud.php'); // Include Login Script
 
-	if ((isset($_SESSION['mail']) != '')) 
+	if ((isset($_SESSION['mail_stud']) != '')) 
 	{
 		header('Location: indexalumno.php');
 	}	
@@ -39,7 +39,7 @@
                         <form role="form" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Mail" name="mail" type="email" autofocus>
+                                    <input class="form-control" placeholder="Mail" name="mail_stud" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Clave" name="password" type="password" value="">

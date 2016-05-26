@@ -5,13 +5,13 @@
 	$error = ""; //Variable for storing our errors.
 	if(isset($_POST["submit"]))
 	{
-		if(empty($_POST["mail"]) || empty($_POST["password"]))
+		if(empty($_POST["mail_prof"]) || empty($_POST["password"]))
 		{
 			$error = "Ambos campos son requeridos.";
 		}else
 		{
 			// Define $username and $password
-			$username=$_POST['mail'];
+			$username=$_POST['mail_prof'];
 			$password=$_POST['password'];
 
 			// To protect from MySQL injection
@@ -31,7 +31,7 @@
 			
 			if(mysqli_num_rows($result) == 1)
 			{
-				$_SESSION['mail'] = $username; // Initializing Session
+				$_SESSION['mail_prof'] = $username; // Initializing Session
 				header("location: indexprofe.php"); // Redirecting To Other Page
 			}else
 			{

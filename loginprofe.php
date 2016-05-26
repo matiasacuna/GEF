@@ -1,7 +1,7 @@
 <?php
 	include('login_db_prof.php'); // Include Login Script
 
-	if ((isset($_SESSION['mail']) != '')) 
+	if ((isset($_SESSION['mail_prof']) != '')) 
 	{	
 
 		header('Location: indexprofe.php');
@@ -40,7 +40,7 @@
                         <form method="post" role="form" >
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Mail" name="mail" type="email" autofocus>
+                                    <input class="form-control" placeholder="Mail" name="mail_prof" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Clave" name="password" type="password" value="">

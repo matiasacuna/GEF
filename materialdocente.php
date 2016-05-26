@@ -233,110 +233,228 @@
         </nav>
         <!-- end navbar side -->
         <!--  page-wrapper -->
-          <div id="page-wrapper">
+       <div id="page-wrapper">
+          
             <div class="row">
-                 <!-- page header -->
+                 <!--page header-->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Crear Proyecto</h1>
+                    <h1 class="page-header">Material Docente</h1>
                 </div>
-                <!--end page header -->
+                 <!--end page header-->
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Form Elements -->
+                    <!--Collapsible Accordion Panel Group   -->
+                    
+                     <!--End Collapsible Accordion Panel Group   -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                     <!--Basic Tabs   -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Informacion sobre el proyecto
+                            Ramos
                         </div>
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Nombre del Proyecto</label>
-                                            <input class="form-control" name="name">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#mate" data-toggle="tab">Matematicas</a>
+                                </li>
+                                <li><a href="#leng" data-toggle="tab">Lenguaje</a>
+                                </li>
+                                <li><a href="#fisica" data-toggle="tab">Fisica</a>
+                                </li>
+                                <li><a href="#quimica" data-toggle="tab">Quimica</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="mate">
+                                    <div class="panel-body">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Quinto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <?php
+	$sql="SELECT * FROM files_professor_material";
+	$result_set=mysqli_query($db,$sql);
+	while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
+	{
+		?>
+        <tr>
+        <td><?php echo $row['file'] ?></td>
+        <td><?php echo $row['type'] ?></td>
+        <td><?php echo $row['size'] ?></td>
+        <td><a href="	ds_professor_material/<?php echo $row['file'] ?>" target="_blank">view file</a></td>
+        </tr>
+        <?php
+	}
+	?>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Ramo</label>
-                                            <input class="form-control" name="course">
-                                            <p class="help-block">Ejemplo: Matematicas, Geometria, Lenguaje, Ortografia, Historia</p>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Sexto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
                                         </div>
-                                        <div class="form-group">
-                                            <label>Curso</label>
-                                            <select class="form-control" name="level">
-                                                 <option value="1">Quinto Basico A</option>
-                                                 <option value="2">Quinto Basico B</option>
-                                                 <option value="3">Sexto Basico</option>
-                                                 <option value="4">Septimo Basico</option>
-                                                 <option value="5">Octavo Basico</option>
-                                            </select>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Septimo Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
                                         </div>
-                                        <div class="form-group">
-                                            <label>Alumnos</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Alumno 1
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Alumno 2
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Alumno 3
-                                                </label>
-                                       	 	</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 1</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 2</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 3</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 4</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 5</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tarea 6</label>
-                                            <input class="form-control">
-                                            <label>Fecha Limite</label>
-                                            <input type="date" name="fecha">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Termino del Proyecto</label>
-                                            <input type="date" name="date">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit Button</button>
-                                        <button type="reset" class="btn btn-success">Reset Button</button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                                </div>
+                                <div class="tab-pane fade" id="leng">
+                                    <div class="panel-body">
+                            <div class="panel-group" id="accordion2">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">Quinto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne2" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">Sexto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2">Septimo Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree2" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                                <div class="tab-pane fade" id="fisica">
+                                    <div class="panel-body">
+                            <div class="panel-group" id="accordion3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion3" href="#collapseOne3">Quinto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne3" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            Holanda
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo3">Sexto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo3" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion3" href="#collapseThree3">Septimo Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                                <div class="tab-pane fade" id="quimica">
+                                    <div class="panel-body">
+                            <div class="panel-group" id="accordion4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion4" href="#collapseOne4">Quinto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne4" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion4" href="#collapseTwo4">Sexto Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion4" href="#collapseThree4">Septimo Basico</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                            </div>
+                        </div>
                     </div>
-                     <!-- End Form Elements -->
+                    <!--End Basic Tabs   -->
                 </div>
             </div>
         </div>
